@@ -19,15 +19,20 @@ public class GenerarArchivoNotasMedias {
     public static void main(String[] args) throws IOException {
         FileInputStream entrada = null;
         
+        //selecciono el archivo alumnosNotas.txt donde estan las notas de los alumnos
         try {
             entrada = new FileInputStream("archivos/alumnosNotas.txt");
             
+            //decimos el archivo donde estan las notas de los alumnos
             BufferedReader buffer = new BufferedReader(new FileReader("archivos/alumnosNotas.txt"));
             String linea;
                 
+            //le digo al codigo que cada palabra o cada numero esta separado por :
             while ((linea = buffer.readLine()) != null) {
                 String[] partes = linea.split(":");
                 
+                //parseo la nota del fichero a double por si la nota fuese un double y le digo las partes que quiero que parsee 
+                //creo la variable media para que la nota se guarde ahi
                 if(partes.length == 4){
                     Double media = (Double.parseDouble(partes[1]) + Double.parseDouble(partes[2]) + Double.parseDouble(partes[3])) /3;
                     System.out.println("La media de " + partes[0] + " es: " + media);
