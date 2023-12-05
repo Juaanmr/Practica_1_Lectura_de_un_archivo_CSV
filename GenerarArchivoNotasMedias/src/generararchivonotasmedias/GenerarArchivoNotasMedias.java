@@ -27,7 +27,7 @@ public class GenerarArchivoNotasMedias {
             BufferedReader buffer = new BufferedReader(new FileReader("archivos/alumnosNotas.txt"));
             String linea;
                 
-            //le digo al codigo que cada palabra o cada numero esta separado por :
+            //lee el archivo linea por linea y le digo al codigo que cada palabra o cada numero esta separado por :
             while ((linea = buffer.readLine()) != null) {
                 String[] partes = linea.split(":");
                 
@@ -42,6 +42,7 @@ public class GenerarArchivoNotasMedias {
         catch (Exception e) 
         {
             if(entrada != null){
+                //cierra el fihero
                 entrada.close();
             }
         }
